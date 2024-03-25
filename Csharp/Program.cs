@@ -2,45 +2,17 @@
 using System.Globalization;
 using System.Numerics;
 
-// 객체 (OOP Object Oriented Programming)
-
-// Knight
-// 속성: hp, attak
-// 기능: Move, Attack, Die
-
-// Ref. 참조
-class Knight
+namespace Csharp
 {
-    public int hp;
-    public int attack;
-
-    public void Move()
+    class Program
     {
-        Console.WriteLine("Knight Move");
-    }
+        static void Main(string[] args)
+        {
+            Player player = new Knight();
+            Monster monster = new Orc();
 
-    public void Attack() 
-    {
-        Console.WriteLine("Knight Attack");
-    }
-}
-// 복사
-struct Mage
-{
-    public int hp;
-    public int attack;
-}
-
-class Program
-{
-    static void Main(string[] args)
-    {
-        Knight knight = new Knight();
-
-        knight.hp = 100;
-        knight.attack = 10;
-
-        knight.Move();
-        knight.Attack();
+            int damage = player.GetAttack();
+            monster.OnDamaged(damage);
+        }
     }
 }
